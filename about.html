@@ -4,282 +4,237 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | IDEA Engineering Student Center | UC San Diego</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --navy: #182B49;
-      --navy-dark: #0e1e35;
+      --blue: #00629B;
       --gold: #C69214;
-      --gold-dark: #a57d10;
-      --white: #ffffff;
+      --white: #fff;
       --gray-50: #f7f7f7;
-      --gray-100: #f0f0f0;
-      --gray-200: #e0e0e0;
-      --gray-300: #cccccc;
-      --gray-500: #777777;
-      --gray-700: #444444;
-      --gray-900: #1a1a1a;
-      --font-sans: 'Source Sans 3', sans-serif;
-      --font-serif: 'Source Serif 4', serif;
+      --gray-100: #eeeeee;
+      --gray-200: #d9d9d9;
+      --gray-600: #666;
+      --gray-900: #1f1f1f;
+      --font-sans: "Source Sans 3", Arial, sans-serif;
+      --font-serif: "Source Serif 4", Georgia, serif;
     }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-sans);
-      color: var(--gray-900);
-      background: var(--white);
-      font-size: 15px;
-      line-height: 1.6;
-    }
+    body { font-family: var(--font-sans); color: var(--gray-900); background: white; line-height: 1.55; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
+    .topbar { background: var(--navy); color: white; font-size: 14px; }
+    .topbar-inner { min-height: 36px; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
 
-    /* NAV */
-    .nav-wrapper { position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .nav-top { background: var(--white); border-bottom: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 84px; }
+    header { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 1px solid var(--gray-200); box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+    .brand-row { min-height: 78px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 16px; }
+    .brand-ucsd { color: var(--navy); font-size: 22px; font-weight: 800; padding-right: 16px; border-right: 1px solid var(--gray-200); }
+    .brand-idea strong { display: block; color: var(--navy); font-size: 19px; line-height: 1.05; }
+    .brand-idea span { color: var(--gray-600); font-size: 13px; }
+    nav { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+    nav a { color: var(--navy); font-weight: 700; font-size: 14px; padding: 10px 12px; border-radius: 3px; }
+    nav a:hover, nav a.active { background: #edf4f8; }
 
-    .nav-left { display: flex; align-items: center; gap: 16px; }
+    .page-hero { background: linear-gradient(100deg, var(--navy), var(--blue)); color: white; padding: 74px 0; }
+    .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px; font-size: 13px; font-weight: 800; margin-bottom: 12px; }
+    h1 { font-family: var(--font-serif); font-size: clamp(40px, 5vw, 58px); line-height: 1; font-weight: 600; margin-bottom: 16px; }
+    .page-hero p { color: rgba(255,255,255,.82); font-size: 20px; max-width: 720px; }
 
-    .site-logo-idea { height: 42px; }
-    .site-logo-jacobs { height: 46px; }
+    .layout { display: grid; grid-template-columns: 230px 1fr; gap: 42px; padding: 58px 0; }
+    .sidebar { position: sticky; top: 110px; align-self: start; border-left: 4px solid var(--gold); background: var(--gray-50); padding: 18px 0; }
+    .sidebar a { display: block; color: var(--navy); font-weight: 700; padding: 9px 20px; }
+    .sidebar a:hover { background: white; }
 
-    .nav-main { background: var(--navy); display: flex; align-items: center; padding: 0 32px; height: 42px; }
+    .content-section { margin-bottom: 58px; }
+    .content-section h2 { color: var(--navy); font-size: 34px; margin-bottom: 14px; }
+    .content-section p { color: var(--gray-600); font-size: 18px; max-width: 760px; margin-bottom: 16px; }
 
-    .nav-main-links { display: flex; list-style: none; flex: 1; }
-    .nav-main-links a {
-      color: rgba(255,255,255,0.9);
-      font-size: 13px;
-      padding: 0 16px;
-      height: 42px;
-      display: flex;
-      align-items: center;
-      border-right: 1px solid rgba(255,255,255,0.1);
-    }
-    .nav-main-links a:hover,
-    .nav-main-links a.active { background: rgba(255,255,255,0.1); }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px; }
+    .value-card { border: 1px solid var(--gray-200); padding: 24px; background: white; border-top: 5px solid var(--gold); }
+    .value-card h3 { color: var(--navy); font-size: 22px; margin-bottom: 8px; }
+    .value-card p { font-size: 16px; margin-bottom: 0; }
 
-    /* HERO */
-    .page-hero {
-      background: var(--navy);
-      padding: 3.5rem 3rem;
-      position: relative;
-    }
+    .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px; }
+    .staff-card { border: 1px solid var(--gray-200); background: white; overflow: hidden; transition: transform .15s, box-shadow .15s; }
+    .staff-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.08); }
+    .staff-avatar { height: 132px; background: linear-gradient(135deg, var(--navy), var(--blue)); display: grid; place-items: center; }
+    .staff-initials { width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center; background: rgba(198,146,20,.18); color: var(--gold); border: 2px solid rgba(198,146,20,.45); font-size: 18px; font-weight: 800; }
+    .staff-info { padding: 20px; }
+    .staff-name { color: var(--navy); font-weight: 800; font-size: 18px; line-height: 1.2; margin-bottom: 6px; }
+    .staff-title { color: var(--gray-600); font-size: 14px; min-height: 44px; margin-bottom: 12px; }
+    .staff-email { color: var(--blue); font-size: 14px; font-weight: 700; display: block; overflow-wrap: anywhere; margin-bottom: 2px; }
 
-    .page-hero h1 {
-      font-family: var(--font-serif);
-      font-size: 36px;
-      color: var(--white);
-      margin-bottom: 0.75rem;
-    }
+    .contact-box { background: #f7f3e8; border: 1px solid #eadfbd; padding: 28px; }
+    .contact-box h3 { color: var(--navy); font-size: 26px; margin-bottom: 10px; }
 
-    .page-hero-sub {
-      color: rgba(255,255,255,0.65);
-      max-width: 560px;
-    }
+    footer { background: #111827; color: rgba(255,255,255,.72); padding: 40px 0; }
+    footer h3 { color: white; margin-bottom: 8px; }
 
-    /* LAYOUT */
-    .page-layout {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .sidebar {
-      border-right: 1px solid var(--gray-200);
-      padding: 2rem 0;
-      position: sticky;
-      top: 98px;
-    }
-
-    .sidebar-links a {
-      display: block;
-      padding: 9px 1.5rem;
-      font-size: 13px;
-      color: var(--gray-700);
-    }
-
-    .main-content {
-      padding: 3rem;
-    }
-
-    /* STAFF */
-    .staff-block {
-      margin-bottom: 3rem;
-    }
-
-    .staff-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-
-    .staff-card {
-      border: 1px solid var(--gray-200);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .staff-avatar {
-      height: 120px;
-      background: linear-gradient(135deg, var(--navy), #2a4a7a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .staff-initials {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: rgba(198,146,20,0.2);
-      color: var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-    }
-
-    .staff-info { padding: 1rem; }
-
-    .staff-name { font-weight: 700; color: var(--navy); }
-    .staff-title { font-size: 12px; color: var(--gray-500); margin-bottom: 6px; }
-
-    .staff-email {
-      font-size: 12px;
-      color: var(--navy);
-      display: block;
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--gray-900);
-      color: #999;
-      padding: 3rem;
-      margin-top: 3rem;
-    }
-
-    @media (max-width: 768px) {
-      .page-layout { grid-template-columns: 1fr; }
-      .sidebar { display: none; }
-      .staff-grid { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 900px) {
+      .topbar-inner, .brand-row { flex-direction: column; align-items: flex-start; padding: 14px 0; }
+      nav { justify-content: flex-start; }
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .staff-grid, .values-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-
-<!-- NAV -->
-<div class="nav-wrapper">
-  <div class="nav-top">
-    <div class="nav-left">
-      <img src="images/idea-logo.png" class="site-logo-idea" />
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>UC San Diego Jacobs School of Engineering</span>
+      <a href="https://jacobsschool.ucsd.edu/idea" target="_blank" rel="noopener">Official IDEA Center Site</a>
     </div>
-    <img src="images/ucsd-jacobs-logo.png" class="site-logo-jacobs" />
   </div>
 
-  <nav class="nav-main">
-    <ul class="nav-main-links">
-      <li><a class="active" href="#">About</a></li>
-      <li><a href="#">Programs</a></li>
-      <li><a href="#">Students</a></li>
-      <li><a href="#">Resources</a></li>
-    </ul>
-  </nav>
-</div>
-
-<!-- HERO -->
-<div class="page-hero">
-  <h1>About IDEA Engineering</h1>
-  <p class="page-hero-sub">Mission, values, and the team supporting engineering students at UC San Diego.</p>
-</div>
-
-<div class="page-layout">
-
-  <aside class="sidebar">
-    <a href="#staff">Meet the Staff</a>
-  </aside>
-
-  <main class="main-content">
-
-    <!-- STAFF -->
-    <section class="staff-block" id="staff">
-      <h2>Meet the Staff</h2>
-
-      <div class="staff-grid">
-
-        <div class="staff-card">
-          <div class="staff-avatar"><div class="staff-initials">AP</div></div>
-          <div class="staff-info">
-            <div class="staff-name">Alex Phan, Ph.D.</div>
-            <div class="staff-title">Executive Director for Student Success</div>
-            <a class="staff-email" href="mailto:alexphan@ucsd.edu">alexphan@ucsd.edu</a>
-            <a class="staff-email" href="tel:8588224636">(858) 822-4636</a>
-          </div>
+  <header>
+    <div class="container brand-row">
+      <a class="brand" href="index.html">
+        <div class="brand-ucsd">UC San Diego</div>
+        <div class="brand-idea">
+          <strong>IDEA Engineering</strong>
+          <span>Student Center</span>
         </div>
+      </a>
+      <nav aria-label="Main navigation">
+        <a class="active" href="about.html">About</a>
+        <a href="index.html#new-admits">New Admits</a>
+        <a href="index.html#undergraduate">Undergraduate</a>
+        <a href="index.html#graduate">Graduate</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
 
-        <div class="staff-card">
-          <div class="staff-avatar"><div class="staff-initials">JD</div></div>
-          <div class="staff-info">
-            <div class="staff-name">Jackie Duerr, Ed.D.</div>
-            <div class="staff-title">Director</div>
-            <a class="staff-email" href="mailto:jduerr@ucsd.edu">jduerr@ucsd.edu</a>
-          </div>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">About IDEA</div>
+      <h1>Meet the team supporting Jacobs School students.</h1>
+      <p>The IDEA Engineering Student Center advances student success through community, access, academic support, professional development, and belonging.</p>
+    </div>
+  </section>
+
+  <main class="container layout">
+    <aside class="sidebar">
+      <a href="#mission">Mission</a>
+      <a href="#values">Values</a>
+      <a href="#staff">Meet the Staff</a>
+      <a href="#contact">Contact</a>
+    </aside>
+
+    <div>
+      <section id="mission" class="content-section">
+        <h2>Mission</h2>
+        <p>The IDEA Engineering Student Center supports engineering students at UC San Diego by connecting them with resources, opportunities, and a student-centered community that helps them thrive.</p>
+        <p>This page is structured as a cleaner staff and mission page for review, with consistent navigation, stronger layout hierarchy, and clearer information architecture.</p>
+      </section>
+
+      <section id="values" class="content-section">
+        <h2>Values</h2>
+        <div class="values-grid">
+          <article class="value-card">
+            <h3>Access</h3>
+            <p>Reducing barriers so students can find support, programs, and opportunities.</p>
+          </article>
+          <article class="value-card">
+            <h3>Community</h3>
+            <p>Building spaces where engineering students feel seen, connected, and supported.</p>
+          </article>
+          <article class="value-card">
+            <h3>Success</h3>
+            <p>Helping students grow academically, professionally, and personally.</p>
+          </article>
         </div>
+      </section>
 
-        <div class="staff-card">
-          <div class="staff-avatar"><div class="staff-initials">JB</div></div>
-          <div class="staff-info">
-            <div class="staff-name">Jessica Baldis, M.S.</div>
-            <div class="staff-title">Senior Analyst</div>
-            <a class="staff-email" href="mailto:jbaldis@ucsd.edu">jbaldis@ucsd.edu</a>
-          </div>
+      <section id="staff" class="content-section">
+        <h2>Meet the Staff</h2>
+        <p>IDEA staff support engineering student success across advising, programming, operations, and community-building initiatives.</p>
+
+        <div class="staff-grid">
+          <article class="staff-card">
+            <div class="staff-avatar"><div class="staff-initials">AP</div></div>
+            <div class="staff-info">
+              <div class="staff-name">Alex Phan, Ph.D.</div>
+              <div class="staff-title">Executive Director for Student Success</div>
+              <a class="staff-email" href="mailto:alexphan@ucsd.edu">alexphan@ucsd.edu</a>
+              <a class="staff-email" href="tel:8588224636">(858) 822-4636</a>
+            </div>
+          </article>
+
+          <article class="staff-card">
+            <div class="staff-avatar"><div class="staff-initials">JD</div></div>
+            <div class="staff-info">
+              <div class="staff-name">Jackie Duerr, Ed.D.</div>
+              <div class="staff-title">Director</div>
+              <a class="staff-email" href="mailto:jduerr@ucsd.edu">jduerr@ucsd.edu</a>
+            </div>
+          </article>
+
+          <article class="staff-card">
+            <div class="staff-avatar"><div class="staff-initials">JB</div></div>
+            <div class="staff-info">
+              <div class="staff-name">Jessica Baldis, M.S.</div>
+              <div class="staff-title">Senior Analyst</div>
+              <a class="staff-email" href="mailto:jbaldis@ucsd.edu">jbaldis@ucsd.edu</a>
+            </div>
+          </article>
+
+          <article class="staff-card">
+            <div class="staff-avatar"><div class="staff-initials">SE</div></div>
+            <div class="staff-info">
+              <div class="staff-name">Sara Eckardt</div>
+              <div class="staff-title">Assistant Director</div>
+              <a class="staff-email" href="mailto:sleckardt@ucsd.edu">sleckardt@ucsd.edu</a>
+            </div>
+          </article>
+
+          <article class="staff-card">
+            <div class="staff-avatar"><div class="staff-initials">TV</div></div>
+            <div class="staff-info">
+              <div class="staff-name">Tyler Vuillemot, M.A.</div>
+              <div class="staff-title">Student Success Coordinator</div>
+              <a class="staff-email" href="mailto:tvuillemot@ucsd.edu">tvuillemot@ucsd.edu</a>
+            </div>
+          </article>
+
+          <article class="staff-card">
+            <div class="staff-avatar"><div class="staff-initials">SM</div></div>
+            <div class="staff-info">
+              <div class="staff-name">Susan Morris</div>
+              <div class="staff-title">Administrative Assistant</div>
+              <a class="staff-email" href="mailto:sum006@ucsd.edu">sum006@ucsd.edu</a>
+            </div>
+          </article>
         </div>
+      </section>
 
-        <div class="staff-card">
-          <div class="staff-avatar"><div class="staff-initials">SE</div></div>
-          <div class="staff-info">
-            <div class="staff-name">Sara Eckardt</div>
-            <div class="staff-title">Assistant Director</div>
-            <a class="staff-email" href="mailto:sleckardt@ucsd.edu">sleckardt@ucsd.edu</a>
-          </div>
+      <section id="contact" class="content-section">
+        <div class="contact-box">
+          <h3>Contact IDEA</h3>
+          <p><strong>IDEA Engineering Student Center</strong><br>
+          Jacobs Hall, Suite 1400<br>
+          UC San Diego<br>
+          Email: <a class="staff-email" href="mailto:idea@ucsd.edu">idea@ucsd.edu</a></p>
         </div>
-
-        <div class="staff-card">
-          <div class="staff-avatar"><div class="staff-initials">TV</div></div>
-          <div class="staff-info">
-            <div class="staff-name">Tyler Vuillemot, M.A.</div>
-            <div class="staff-title">Student Success Coordinator</div>
-            <a class="staff-email" href="mailto:tvuillemot@ucsd.edu">tvuillemot@ucsd.edu</a>
-          </div>
-        </div>
-
-        <div class="staff-card">
-          <div class="staff-avatar"><div class="staff-initials">SM</div></div>
-          <div class="staff-info">
-            <div class="staff-name">Susan Morris</div>
-            <div class="staff-title">Admin Assistant</div>
-            <a class="staff-email" href="mailto:sum006@ucsd.edu">sum006@ucsd.edu</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
+      </section>
+    </div>
   </main>
-</div>
 
-<footer>
-  UC San Diego IDEA Engineering Student Center
-</footer>
-
+  <footer>
+    <div class="container">
+      <h3>IDEA Engineering Student Center</h3>
+      <p>UC San Diego Jacobs School of Engineering</p>
+    </div>
+  </footer>
 </body>
 </html>
