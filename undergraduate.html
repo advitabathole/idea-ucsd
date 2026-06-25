@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Undergraduate | IDEA Engineering Student Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#182B49;
+  --blue:#00629B;
+  --gold:#C69214;
+  --pale:#F4F7FA;
+  --bluepale:#EAF1F7;
+  --line:#D4DCE5;
+  --text:#102B4E;
+  --muted:#4B5D70;
+  --icon:#87919B;
+  --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Source Sans 3",Arial,sans-serif;color:var(--text);background:#fff;font-size:14px;line-height:1.45}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,calc(100% - 56px));margin:0 auto}
+.topbar{height:34px;background:var(--navy);color:white;font-size:12px}
+.topbar .container{height:34px;display:flex;justify-content:space-between;align-items:center}
+.espanol{background:var(--gold);color:white;padding:5px 12px;font-weight:900;border-radius:2px}
+header{background:white;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.header-inner{height:62px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav{display:flex;align-items:center;gap:0;font-size:13px;font-weight:800;color:var(--navy)}
+.nav a{padding:22px 12px}
+.nav a:hover,.nav a.active{background:var(--pale)}
+.logo-side{display:flex;align-items:center;gap:14px}
+.idea-mini{font-size:10px;line-height:1.08;font-weight:900;text-transform:uppercase;color:var(--navy)}
+.jacobs-logo{border:1px solid var(--line);padding:7px 10px;font-size:10px;font-weight:900;text-transform:uppercase;color:var(--navy);line-height:1.12;background:#fff}
+.hero{min-height:360px;background:linear-gradient(90deg,rgba(255,255,255,.98),rgba(255,255,255,.92) 42%,rgba(255,255,255,.35) 68%,rgba(255,255,255,.05)),url("https://jacobsschool.ucsd.edu/sites/default/files/styles/node_hero_image/public/2022/06/EBU1.jpg");background-size:cover;background-position:center;border-bottom:1px solid var(--line)}
+.hero-copy{max-width:470px;padding:78px 0}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:900;color:var(--blue);margin-bottom:10px}
+h1{font-size:42px;line-height:1.03;color:var(--navy);font-weight:900;letter-spacing:-.4px;margin-bottom:14px}
+.hero p,.lead{font-size:17px;color:#2E4155;max-width:700px;margin-bottom:20px}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 17px;border:2px solid var(--navy);border-radius:2px;font-size:13px;font-weight:900}
+.btn.primary{background:var(--navy);color:white}
+.btn.secondary{background:white;color:var(--navy)}
+.section{padding:42px 0;border-bottom:1px solid var(--line)}
+.section.pale{background:var(--pale)}
+.section.blue{background:var(--bluepale)}
+.section-title{text-align:center;color:var(--navy);font-size:23px;font-weight:900;margin-bottom:24px}
+.section-title.left{text-align:left;margin-bottom:12px}
+.grid-2{display:grid;grid-template-columns:38% 1fr;gap:44px;align-items:center}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.grid-6{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.card{border:1px solid var(--line);background:white;padding:22px;min-height:150px}
+.card.center{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.card h3{color:var(--navy);font-size:18px;font-weight:900;margin-bottom:7px}
+.card p,.card li{color:var(--muted);font-size:13px}
+.card ul{padding-left:16px}
+.icon{font-size:28px;color:var(--icon);display:block;margin-bottom:10px}
+.link{color:var(--blue);font-weight:900;font-size:13px;display:inline-block;margin-top:10px}
+.placeholder{height:210px;background:#E1E5E9;border:1px solid #CAD2DA;position:relative;overflow:hidden}
+.placeholder:before,.placeholder:after{content:"";position:absolute;inset:0;background:linear-gradient(32deg,transparent 49.5%,#C7CDD3 50%,transparent 50.5%)}
+.placeholder:after{background:linear-gradient(-32deg,transparent 49.5%,#C7CDD3 50%,transparent 50.5%)}
+.placeholder span{position:absolute;inset:0;display:grid;place-items:center;color:var(--icon);font-size:28px;z-index:2}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{text-align:center;padding:22px 18px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat-num{font-size:28px;font-weight:900;color:var(--navy);line-height:1}
+.stat-label{font-size:12px;color:var(--muted);line-height:1.2;margin-top:7px}
+.cta{background:var(--navy);color:white;text-align:center;padding:34px 0}
+.cta h2{font-size:26px;font-weight:900;margin-bottom:6px}
+.cta p{color:rgba(255,255,255,.78);margin-bottom:16px}
+.cta .btn{border-color:white}
+.cta .secondary{background:transparent;color:white}
+footer{background:#EEF2F5;padding:30px 0;border-top:1px solid var(--line)}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:24px}
+footer h3,footer h4{color:var(--navy);font-size:14px;font-weight:900;margin-bottom:8px}
+footer p,footer li,footer a{color:#415468;font-size:12px;line-height:1.45}
+footer ul{list-style:none}
+.page-hero{background:linear-gradient(90deg,var(--navy),var(--blue));color:white;padding:58px 0}
+.page-hero h1{color:white;font-size:40px}
+.page-hero p{color:rgba(255,255,255,.8);font-size:17px;max-width:760px}
+.layout{display:grid;grid-template-columns:240px 1fr;gap:36px;padding:42px 0}
+.sidebar{background:var(--pale);border-left:5px solid var(--blue);align-self:start;position:sticky;top:86px}
+.sidebar a{display:block;padding:12px 16px;border-bottom:1px solid var(--line);font-weight:900;color:var(--navy)}
+.tab-strip{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 26px}
+.tab{border:1px solid var(--line);background:white;padding:10px 14px;font-weight:900;color:var(--navy)}
+.tab.active{background:var(--navy);color:white}
+.content-block{margin-bottom:38px}
+.content-block h2{font-size:28px;color:var(--navy);font-weight:900;margin-bottom:10px}
+.content-block p{color:var(--muted);max-width:780px;margin-bottom:12px}
+.schedule{border:1px solid var(--line);background:white;margin-bottom:20px}
+.schedule-row{display:grid;grid-template-columns:150px 1fr 160px;border-bottom:1px solid var(--line)}
+.schedule-row:last-child{border-bottom:0}
+.schedule-row div{padding:12px}
+.schedule-head{background:var(--navy);color:white;font-weight:900}
+.carousel{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.photo-box{height:130px;background:#E1E5E9;border:1px solid var(--line);display:grid;place-items:center;color:var(--icon);font-size:24px}
+.notice{background:#FFF8E8;border-left:5px solid var(--gold);padding:16px 18px;margin:18px 0;color:#3A3A2A}
+@media(max-width:900px){
+  .topbar .container,.header-inner{height:auto;min-height:50px;padding:10px 0;flex-direction:column;align-items:flex-start}
+  .nav{flex-wrap:wrap}.nav a{padding:8px 9px}
+  .grid-2,.grid-3,.grid-4,.grid-6,.stats,.footer-grid,.layout,.carousel,.schedule-row{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}
+  .sidebar{position:static}
+  h1{font-size:32px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="container">
+    <span>UC San Diego Jacobs School of Engineering</span>
+    <a class="espanol" href="#">IDEA Center en Español</a>
+  </div>
+</div>
+<header>
+  <div class="container header-inner">
+    <nav class="nav"><a class="" href="index.html">Home</a><a class="" href="about.html">About</a><a class="" href="new-admits.html">New Admits</a><a class="active" href="undergraduate.html">Undergraduate</a><a class="" href="events.html">Events</a><a class="" href="get-involved.html">Get Involved</a></nav>
+    <a class="logo-side" href="index.html">
+      <div class="idea-mini">IDEA Engineering<br>Student Center</div>
+      <div class="jacobs-logo">Jacobs School<br>of Engineering</div>
+    </a>
+  </div>
+</header>
+
+<section class="page-hero"><div class="container"><h1>Undergraduate</h1><p>E-News as the main landing content, with ELC, research, symposium, and scholarship resources below.</p></div></section>
+<main class="container layout">
+<aside class="sidebar"><a href="#enews">E-News</a><a href="#elc">ELC</a><a href="#research">Research</a><a href="#symposium">Symposium</a><a href="#scholarship">Research Scholarship</a><a href="#resources">Campus Resources</a></aside>
+<div>
+  <section id="enews" class="content-block"><h2>E-News</h2><p>Make E-News the Undergraduate landing page so students immediately see announcements, opportunities, and deadlines.</p><div class="notice">Wireframe note: E-News becomes the primary undergraduate page, not buried as a subpage.</div></section>
+  <section id="elc" class="content-block"><h2>ELC</h2><p>Schedule should appear first, followed by about/explanation content.</p><div class="schedule"><div class="schedule-row schedule-head"><div>Day</div><div>Session</div><div>Time</div></div><div class="schedule-row"><div>Monday</div><div>Engineering Learning Community</div><div>3:00–5:00 PM</div></div><div class="schedule-row"><div>Wednesday</div><div>Study + Mentorship</div><div>4:00–6:00 PM</div></div></div><p>About ELC: Add overview content below the schedule.</p></section>
+  <section id="research" class="content-block"><h2>Undergraduate Research</h2><p>Make all items clickable. GearUp2Research should be a subsection, not a standalone section.</p><div class="grid-3"><a class="card" href="#gearup"><h3>GearUp2Research</h3><p>Subsection under Research.</p></a><a class="card" href="#symposium"><h3>Research Symposium</h3><p>Clickable research showcase.</p></a><a class="card" href="#scholarship"><h3>Research Scholarship</h3><p>Clickable funding opportunity.</p></a></div><div id="gearup" class="notice">GearUp2Research is now nested under Undergraduate Research.</div></section>
+  <section id="symposium" class="content-block"><h2>Symposium</h2><p>Photo carousel placeholder for symposium images.</p><div class="carousel"><div class="photo-box">Photo 1</div><div class="photo-box">Photo 2</div><div class="photo-box">Photo 3</div></div></section>
+  <section id="scholarship" class="content-block"><h2>Research Scholarship</h2><p>Funding details, eligibility, and application link placeholder.</p></section>
+  <section id="resources" class="content-block"><h2>Other Campus Resources</h2><p>Broken links should be corrected here before final implementation.</p><div class="grid-3"><a class="card" href="#"><h3>Academic Advising</h3><p>Fix final URL.</p></a><a class="card" href="#"><h3>Career Center</h3><p>Fix final URL.</p></a><a class="card" href="#"><h3>Basic Needs</h3><p>Fix final URL.</p></a></div></section>
+</div>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div><h3>IDEA Engineering Student Center</h3><p>UC San Diego · Jacobs School of Engineering<br>idea@ucsd.edu</p></div>
+    <div><h4>Students</h4><ul><li><a href="new-admits.html">New Admits</a></li><li><a href="undergraduate.html">Undergraduate</a></li><li><a href="undergraduate.html#research">Research</a></li></ul></div>
+    <div><h4>Explore</h4><ul><li><a href="about.html">Mission & Vision</a></li><li><a href="about.html#staff">Meet the Staff</a></li><li><a href="events.html">Annual Events</a></li></ul></div>
+    <div><h4>Get Involved</h4><ul><li><a href="get-involved.html">Partners</a></li><li><a href="get-involved.html#giving">Giving to IDEA</a></li><li><a href="index.html#triton-giving">Triton Giving Day</a></li></ul></div>
+  </div>
+</footer>
+</body>
+</html>
