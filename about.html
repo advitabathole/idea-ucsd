@@ -1,352 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | IDEA Engineering Student Center | UC San Diego</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --navy: #182B49;
-      --blue: #00629B;
-      --light-blue: #EAF1F7;
-      --line: #D3DAE3;
-      --text: #102B4E;
-      --muted: #4B5D70;
-      --white: #fff;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: "Source Sans 3", Arial, sans-serif;
-      color: var(--text);
-      background: white;
-      line-height: 1.45;
-      font-size: 14px;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(1040px, calc(100% - 54px));
-      margin: 0 auto;
-    }
-
-    .header {
-      height: 50px;
-      border-bottom: 1px solid var(--line);
-      background: #fff;
-    }
-
-    .header-inner {
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo-group {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .ucsd-logo {
-      font-family: Georgia, serif;
-      font-size: 23px;
-      color: var(--navy);
-      padding-right: 12px;
-      border-right: 1px solid var(--line);
-      letter-spacing: -1px;
-    }
-
-    .idea-logo {
-      font-size: 9px;
-      line-height: 1.02;
-      font-weight: 900;
-      color: var(--navy);
-      text-transform: uppercase;
-      letter-spacing: .2px;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--navy);
-    }
-
-    .nav a {
-      padding: 18px 12px;
-    }
-
-    .nav a:hover,
-    .nav a.active {
-      background: #F3F7FA;
-    }
-
-    .page-hero {
-      background: var(--navy);
-      color: white;
-      padding: 58px 0;
-    }
-
-    .page-hero h1 {
-      font-size: 38px;
-      line-height: 1.05;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-
-    .page-hero p {
-      color: rgba(255,255,255,.78);
-      font-size: 16px;
-      max-width: 680px;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 36px;
-      padding: 40px 0;
-    }
-
-    .sidebar {
-      background: #F3F7FA;
-      border-left: 5px solid #00629B;
-      align-self: start;
-      position: sticky;
-      top: 70px;
-    }
-
-    .sidebar a {
-      display: block;
-      padding: 11px 16px;
-      color: var(--navy);
-      font-weight: 800;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section {
-      margin-bottom: 42px;
-    }
-
-    .section h2 {
-      color: var(--navy);
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    .section p {
-      color: var(--muted);
-      max-width: 760px;
-      margin-bottom: 12px;
-    }
-
-    .staff-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .staff-card {
-      border: 1px solid var(--line);
-      background: white;
-    }
-
-    .staff-photo {
-      height: 118px;
-      background: #E2E5E9;
-      display: grid;
-      place-items: center;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .initials {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: white;
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-    }
-
-    .staff-info {
-      padding: 16px;
-    }
-
-    .staff-name {
-      color: var(--navy);
-      font-weight: 900;
-      font-size: 16px;
-      line-height: 1.15;
-      margin-bottom: 6px;
-    }
-
-    .staff-title {
-      color: var(--muted);
-      font-size: 12px;
-      min-height: 34px;
-      margin-bottom: 10px;
-    }
-
-    .staff-info a {
-      display: block;
-      color: var(--blue);
-      font-weight: 800;
-      font-size: 12px;
-      overflow-wrap: anywhere;
-    }
-
-    .footer {
-      background: #EEF2F5;
-      border-top: 1px solid var(--line);
-      padding: 24px 0;
-      color: #415468;
-    }
-
-    .footer h3 {
-      color: var(--navy);
-      font-size: 14px;
-      font-weight: 900;
-      margin-bottom: 6px;
-    }
-
-    @media (max-width: 850px) {
-      .header-inner { height: auto; padding: 12px 0; flex-direction: column; align-items: flex-start; }
-      .header { height: auto; }
-      .nav { flex-wrap: wrap; }
-      .nav a { padding: 8px; }
-      .layout, .staff-grid { grid-template-columns: 1fr; }
-      .sidebar { position: static; }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About | IDEA Engineering Student Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#182B49;
+  --blue:#00629B;
+  --gold:#C69214;
+  --pale:#F4F7FA;
+  --bluepale:#EAF1F7;
+  --line:#D4DCE5;
+  --text:#102B4E;
+  --muted:#4B5D70;
+  --icon:#87919B;
+  --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Source Sans 3",Arial,sans-serif;color:var(--text);background:#fff;font-size:14px;line-height:1.45}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,calc(100% - 56px));margin:0 auto}
+.topbar{height:34px;background:var(--navy);color:white;font-size:12px}
+.topbar .container{height:34px;display:flex;justify-content:space-between;align-items:center}
+.espanol{background:var(--gold);color:white;padding:5px 12px;font-weight:900;border-radius:2px}
+header{background:white;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.header-inner{height:62px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav{display:flex;align-items:center;gap:0;font-size:13px;font-weight:800;color:var(--navy)}
+.nav a{padding:22px 12px}
+.nav a:hover,.nav a.active{background:var(--pale)}
+.logo-side{display:flex;align-items:center;gap:14px}
+.idea-mini{font-size:10px;line-height:1.08;font-weight:900;text-transform:uppercase;color:var(--navy)}
+.jacobs-logo{border:1px solid var(--line);padding:7px 10px;font-size:10px;font-weight:900;text-transform:uppercase;color:var(--navy);line-height:1.12;background:#fff}
+.hero{min-height:360px;background:linear-gradient(90deg,rgba(255,255,255,.98),rgba(255,255,255,.92) 42%,rgba(255,255,255,.35) 68%,rgba(255,255,255,.05)),url("https://jacobsschool.ucsd.edu/sites/default/files/styles/node_hero_image/public/2022/06/EBU1.jpg");background-size:cover;background-position:center;border-bottom:1px solid var(--line)}
+.hero-copy{max-width:470px;padding:78px 0}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:900;color:var(--blue);margin-bottom:10px}
+h1{font-size:42px;line-height:1.03;color:var(--navy);font-weight:900;letter-spacing:-.4px;margin-bottom:14px}
+.hero p,.lead{font-size:17px;color:#2E4155;max-width:700px;margin-bottom:20px}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 17px;border:2px solid var(--navy);border-radius:2px;font-size:13px;font-weight:900}
+.btn.primary{background:var(--navy);color:white}
+.btn.secondary{background:white;color:var(--navy)}
+.section{padding:42px 0;border-bottom:1px solid var(--line)}
+.section.pale{background:var(--pale)}
+.section.blue{background:var(--bluepale)}
+.section-title{text-align:center;color:var(--navy);font-size:23px;font-weight:900;margin-bottom:24px}
+.section-title.left{text-align:left;margin-bottom:12px}
+.grid-2{display:grid;grid-template-columns:38% 1fr;gap:44px;align-items:center}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.grid-6{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.card{border:1px solid var(--line);background:white;padding:22px;min-height:150px}
+.card.center{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.card h3{color:var(--navy);font-size:18px;font-weight:900;margin-bottom:7px}
+.card p,.card li{color:var(--muted);font-size:13px}
+.card ul{padding-left:16px}
+.icon{font-size:28px;color:var(--icon);display:block;margin-bottom:10px}
+.link{color:var(--blue);font-weight:900;font-size:13px;display:inline-block;margin-top:10px}
+.placeholder{height:210px;background:#E1E5E9;border:1px solid #CAD2DA;position:relative;overflow:hidden}
+.placeholder:before,.placeholder:after{content:"";position:absolute;inset:0;background:linear-gradient(32deg,transparent 49.5%,#C7CDD3 50%,transparent 50.5%)}
+.placeholder:after{background:linear-gradient(-32deg,transparent 49.5%,#C7CDD3 50%,transparent 50.5%)}
+.placeholder span{position:absolute;inset:0;display:grid;place-items:center;color:var(--icon);font-size:28px;z-index:2}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{text-align:center;padding:22px 18px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat-num{font-size:28px;font-weight:900;color:var(--navy);line-height:1}
+.stat-label{font-size:12px;color:var(--muted);line-height:1.2;margin-top:7px}
+.cta{background:var(--navy);color:white;text-align:center;padding:34px 0}
+.cta h2{font-size:26px;font-weight:900;margin-bottom:6px}
+.cta p{color:rgba(255,255,255,.78);margin-bottom:16px}
+.cta .btn{border-color:white}
+.cta .secondary{background:transparent;color:white}
+footer{background:#EEF2F5;padding:30px 0;border-top:1px solid var(--line)}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:24px}
+footer h3,footer h4{color:var(--navy);font-size:14px;font-weight:900;margin-bottom:8px}
+footer p,footer li,footer a{color:#415468;font-size:12px;line-height:1.45}
+footer ul{list-style:none}
+.page-hero{background:linear-gradient(90deg,var(--navy),var(--blue));color:white;padding:58px 0}
+.page-hero h1{color:white;font-size:40px}
+.page-hero p{color:rgba(255,255,255,.8);font-size:17px;max-width:760px}
+.layout{display:grid;grid-template-columns:240px 1fr;gap:36px;padding:42px 0}
+.sidebar{background:var(--pale);border-left:5px solid var(--blue);align-self:start;position:sticky;top:86px}
+.sidebar a{display:block;padding:12px 16px;border-bottom:1px solid var(--line);font-weight:900;color:var(--navy)}
+.tab-strip{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 26px}
+.tab{border:1px solid var(--line);background:white;padding:10px 14px;font-weight:900;color:var(--navy)}
+.tab.active{background:var(--navy);color:white}
+.content-block{margin-bottom:38px}
+.content-block h2{font-size:28px;color:var(--navy);font-weight:900;margin-bottom:10px}
+.content-block p{color:var(--muted);max-width:780px;margin-bottom:12px}
+.schedule{border:1px solid var(--line);background:white;margin-bottom:20px}
+.schedule-row{display:grid;grid-template-columns:150px 1fr 160px;border-bottom:1px solid var(--line)}
+.schedule-row:last-child{border-bottom:0}
+.schedule-row div{padding:12px}
+.schedule-head{background:var(--navy);color:white;font-weight:900}
+.carousel{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.photo-box{height:130px;background:#E1E5E9;border:1px solid var(--line);display:grid;place-items:center;color:var(--icon);font-size:24px}
+.notice{background:#FFF8E8;border-left:5px solid var(--gold);padding:16px 18px;margin:18px 0;color:#3A3A2A}
+@media(max-width:900px){
+  .topbar .container,.header-inner{height:auto;min-height:50px;padding:10px 0;flex-direction:column;align-items:flex-start}
+  .nav{flex-wrap:wrap}.nav a{padding:8px 9px}
+  .grid-2,.grid-3,.grid-4,.grid-6,.stats,.footer-grid,.layout,.carousel,.schedule-row{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}
+  .sidebar{position:static}
+  h1{font-size:32px}
+}
+</style>
 </head>
-
 <body>
-  <header class="header">
-    <div class="container header-inner">
-      <a class="logo-group" href="index.html">
-        <div class="ucsd-logo">UCSanDiego</div>
-        <div class="idea-logo">IDEA Engineering<br>Student Center</div>
-      </a>
+<div class="topbar">
+  <div class="container">
+    <span>UC San Diego Jacobs School of Engineering</span>
+    <a class="espanol" href="#">IDEA Center en Español</a>
+  </div>
+</div>
+<header>
+  <div class="container header-inner">
+    <nav class="nav"><a class="" href="index.html">Home</a><a class="active" href="about.html">About</a><a class="" href="new-admits.html">New Admits</a><a class="" href="undergraduate.html">Undergraduate</a><a class="" href="events.html">Events</a><a class="" href="get-involved.html">Get Involved</a></nav>
+    <a class="logo-side" href="index.html">
+      <div class="idea-mini">IDEA Engineering<br>Student Center</div>
+      <div class="jacobs-logo">Jacobs School<br>of Engineering</div>
+    </a>
+  </div>
+</header>
 
-      <nav class="nav">
-        <a class="active" href="about.html">About</a>
-        <a href="index.html#programs">Programs⌄</a>
-        <a href="index.html#students">Students⌄</a>
-        <a href="index.html#resources">Resources⌄</a>
-        <a href="index.html#events">Events</a>
-        <a href="index.html#support">Get Support</a>
-      </nav>
-    </div>
-  </header>
+<section class="page-hero"><div class="container"><h1>About IDEA</h1><p>Mission, vision, purpose, origin story, and impact as the main About landing page.</p></div></section>
+<main class="container layout">
+<aside class="sidebar"><a href="#mission">Mission & Vision</a><a href="#origin">Purpose & Origin Story</a><a href="#impact">Impact</a><a href="#staff">Meet the Staff</a><a href="#directions">Directions</a></aside>
+<div>
+  <section id="mission" class="content-block"><h2>Mission and Vision</h2><p>IDEA supports engineering students through academic, professional, and community-centered programs. This section is now the main About landing content, modeled after an “Explore” layout.</p></section>
+  <section id="origin" class="content-block"><h2>Purpose and Origin Story</h2><p>Explain why IDEA exists, who it serves, and how it has shaped student success within the Jacobs School of Engineering.</p><div class="grid-3"><div class="card"><h3>Purpose</h3><p>Student success and belonging.</p></div><div class="card"><h3>Origin</h3><p>How IDEA started and evolved.</p></div><div class="card"><h3>Impact</h3><p>Programs, community, and measurable outcomes.</p></div></div></section>
+  <section id="impact" class="content-block"><h2>Impact</h2><div class="stats"><div class="stat"><div class="stat-num">200+</div><div class="stat-label">Students</div></div><div class="stat"><div class="stat-num">30+</div><div class="stat-label">Events</div></div><div class="stat"><div class="stat-num">100+</div><div class="stat-label">Partners</div></div><div class="stat"><div class="stat-num">$7.5K+</div><div class="stat-label">Funding</div></div></div></section>
+  <section id="staff" class="content-block"><h2>Meet the Staff</h2><div class="grid-3"><div class="card"><h3>Alex Phan, Ph.D.</h3><p>Executive Director for Student Success</p></div><div class="card"><h3>Jackie Duerr, Ed.D.</h3><p>Director</p></div><div class="card"><h3>Jessica Baldis, M.S.</h3><p>Senior Analyst</p></div><div class="card"><h3>Sara Eckardt</h3><p>Assistant Director</p></div><div class="card"><h3>Tyler Vuillemot, M.A.</h3><p>Student Success Coordinator</p></div><div class="card"><h3>Susan Morris</h3><p>Administrative Assistant</p></div></div></section>
+  <section id="directions" class="content-block"><h2>Directions</h2><p>Placeholder for office location, parking, map, and building directions.</p></section>
+</div>
+</main>
 
-  <section class="page-hero">
-    <div class="container">
-      <h1>About IDEA Engineering</h1>
-      <p>Mission, values, and the team supporting engineering students at UC San Diego.</p>
-    </div>
-  </section>
-
-  <main class="container layout">
-    <aside class="sidebar">
-      <a href="#mission">Mission</a>
-      <a href="#staff">Meet the Staff</a>
-      <a href="#contact">Contact</a>
-    </aside>
-
-    <div>
-      <section id="mission" class="section">
-        <h2>Mission</h2>
-        <p>The IDEA Engineering Student Center supports undergraduate and graduate engineering students through academic enrichment, community engagement, and professional development programs.</p>
-        <p>We aim to promote student success, belonging, and achievement across all engineering disciplines.</p>
-      </section>
-
-      <section id="staff" class="section">
-        <h2>Meet the Staff</h2>
-        <p>IDEA staff support engineering student success across advising, programming, operations, and student-centered initiatives.</p>
-
-        <div class="staff-grid">
-          <article class="staff-card">
-            <div class="staff-photo"><div class="initials">AP</div></div>
-            <div class="staff-info">
-              <div class="staff-name">Alex Phan, Ph.D.</div>
-              <div class="staff-title">Executive Director for Student Success</div>
-              <a href="mailto:alexphan@ucsd.edu">alexphan@ucsd.edu</a>
-              <a href="tel:8588224636">(858) 822-4636</a>
-            </div>
-          </article>
-
-          <article class="staff-card">
-            <div class="staff-photo"><div class="initials">JD</div></div>
-            <div class="staff-info">
-              <div class="staff-name">Jackie Duerr, Ed.D.</div>
-              <div class="staff-title">Director</div>
-              <a href="mailto:jduerr@ucsd.edu">jduerr@ucsd.edu</a>
-            </div>
-          </article>
-
-          <article class="staff-card">
-            <div class="staff-photo"><div class="initials">JB</div></div>
-            <div class="staff-info">
-              <div class="staff-name">Jessica Baldis, M.S.</div>
-              <div class="staff-title">Senior Analyst</div>
-              <a href="mailto:jbaldis@ucsd.edu">jbaldis@ucsd.edu</a>
-            </div>
-          </article>
-
-          <article class="staff-card">
-            <div class="staff-photo"><div class="initials">SE</div></div>
-            <div class="staff-info">
-              <div class="staff-name">Sara Eckardt</div>
-              <div class="staff-title">Assistant Director</div>
-              <a href="mailto:sleckardt@ucsd.edu">sleckardt@ucsd.edu</a>
-            </div>
-          </article>
-
-          <article class="staff-card">
-            <div class="staff-photo"><div class="initials">TV</div></div>
-            <div class="staff-info">
-              <div class="staff-name">Tyler Vuillemot, M.A.</div>
-              <div class="staff-title">Student Success Coordinator</div>
-              <a href="mailto:tvuillemot@ucsd.edu">tvuillemot@ucsd.edu</a>
-            </div>
-          </article>
-
-          <article class="staff-card">
-            <div class="staff-photo"><div class="initials">SM</div></div>
-            <div class="staff-info">
-              <div class="staff-name">Susan Morris</div>
-              <div class="staff-title">Administrative Assistant</div>
-              <a href="mailto:sum006@ucsd.edu">sum006@ucsd.edu</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p><strong>IDEA Engineering Student Center</strong><br>UC San Diego<br>idea@ucsd.edu</p>
-      </section>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <h3>IDEA Engineering Student Center</h3>
-      <p>UC San Diego · Jacobs School of Engineering</p>
-    </div>
-  </footer>
+<footer>
+  <div class="container footer-grid">
+    <div><h3>IDEA Engineering Student Center</h3><p>UC San Diego · Jacobs School of Engineering<br>idea@ucsd.edu</p></div>
+    <div><h4>Students</h4><ul><li><a href="new-admits.html">New Admits</a></li><li><a href="undergraduate.html">Undergraduate</a></li><li><a href="undergraduate.html#research">Research</a></li></ul></div>
+    <div><h4>Explore</h4><ul><li><a href="about.html">Mission & Vision</a></li><li><a href="about.html#staff">Meet the Staff</a></li><li><a href="events.html">Annual Events</a></li></ul></div>
+    <div><h4>Get Involved</h4><ul><li><a href="get-involved.html">Partners</a></li><li><a href="get-involved.html#giving">Giving to IDEA</a></li><li><a href="index.html#triton-giving">Triton Giving Day</a></li></ul></div>
+  </div>
+</footer>
 </body>
 </html>
