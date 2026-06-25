@@ -4,327 +4,881 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IDEA Engineering Student Center | UC San Diego</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --navy: #182B49;
       --blue: #00629B;
       --gold: #C69214;
-      --gold-dark: #a77a10;
+      --light-blue: #EAF1F7;
+      --pale-blue: #F3F7FA;
+      --gray-bg: #F0F2F4;
+      --line: #D3DAE3;
+      --text: #102B4E;
+      --muted: #4B5D70;
       --white: #fff;
-      --gray-50: #f7f7f7;
-      --gray-100: #eeeeee;
-      --gray-200: #d9d9d9;
-      --gray-600: #666;
-      --gray-900: #1f1f1f;
-      --font-sans: "Source Sans 3", Arial, sans-serif;
-      --font-serif: "Source Serif 4", Georgia, serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-sans); color: var(--gray-900); background: var(--white); line-height: 1.55; }
+
+    body {
+      font-family: "Source Sans 3", Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.35;
+      font-size: 14px;
+    }
+
     a { color: inherit; text-decoration: none; }
-    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 
-    .topbar { background: var(--navy); color: white; font-size: 14px; }
-    .topbar-inner { min-height: 36px; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+    .page-shell {
+      max-width: 1420px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      min-height: 100vh;
+    }
 
-    header { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 1px solid var(--gray-200); box-shadow: 0 2px 10px rgba(0,0,0,.04); }
-    .brand-row { min-height: 78px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
-    .brand { display: flex; align-items: center; gap: 16px; }
-    .brand-ucsd { color: var(--navy); font-size: 22px; font-weight: 800; padding-right: 16px; border-right: 1px solid var(--gray-200); }
-    .brand-idea strong { display: block; color: var(--navy); font-size: 19px; line-height: 1.05; }
-    .brand-idea span { color: var(--gray-600); font-size: 13px; }
-    nav { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
-    nav a { color: var(--navy); font-weight: 700; font-size: 14px; padding: 10px 12px; border-radius: 3px; }
-    nav a:hover { background: #edf4f8; }
+    .main-site {
+      border-right: 1px solid var(--line);
+      background: #fff;
+    }
 
+    .container {
+      width: min(1040px, calc(100% - 54px));
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .header {
+      height: 50px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .header-inner {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ucsd-logo {
+      font-family: Georgia, serif;
+      font-size: 23px;
+      color: var(--navy);
+      padding-right: 12px;
+      border-right: 1px solid var(--line);
+      letter-spacing: -1px;
+    }
+
+    .idea-logo {
+      font-size: 9px;
+      line-height: 1.02;
+      font-weight: 900;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .2px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .nav a {
+      padding: 18px 12px;
+    }
+
+    .nav a:hover {
+      background: var(--pale-blue);
+    }
+
+    .search {
+      font-size: 15px;
+      padding-left: 10px;
+    }
+
+    /* HERO */
     .hero {
+      height: 338px;
+      position: relative;
+      overflow: hidden;
       background:
-        linear-gradient(100deg, rgba(24,43,73,.97) 0%, rgba(24,43,73,.86) 48%, rgba(0,98,155,.72) 100%),
+        linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.95) 39%, rgba(255,255,255,.45) 60%, rgba(255,255,255,.1) 100%),
         url("https://jacobsschool.ucsd.edu/sites/default/files/styles/node_hero_image/public/2022/06/EBU1.jpg");
       background-size: cover;
-      background-position: center;
+      background-position: center 45%;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,.15);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: 42%;
+      min-width: 410px;
+      padding: 72px 0 0;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      line-height: 1.03;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 16px;
+      letter-spacing: -.4px;
+    }
+
+    .hero p {
+      color: #2D3D50;
+      font-size: 14px;
+      max-width: 360px;
+      margin-bottom: 22px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 14px;
+    }
+
+    .btn {
+      min-width: 150px;
+      padding: 11px 16px;
+      border: 2px solid var(--navy);
+      font-size: 12px;
+      font-weight: 900;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+    }
+
+    .btn.primary {
+      background: var(--navy);
       color: white;
     }
-    .hero-inner { min-height: 470px; display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 50px; padding: 72px 0; }
-    .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px; font-size: 13px; font-weight: 800; margin-bottom: 12px; }
-    h1 { font-family: var(--font-serif); font-size: clamp(40px, 6vw, 66px); line-height: .98; font-weight: 600; margin-bottom: 20px; }
-    .hero p { color: rgba(255,255,255,.86); font-size: 20px; max-width: 680px; }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 13px 20px; border-radius: 3px; font-weight: 800; border: 2px solid transparent; }
-    .btn.gold { background: var(--gold); color: var(--navy); }
-    .btn.gold:hover { background: var(--gold-dark); color: white; }
-    .btn.outline { color: white; border-color: rgba(255,255,255,.65); }
-    .btn.outline:hover { background: rgba(255,255,255,.1); }
 
-    .hero-card { background: white; color: var(--navy); padding: 28px; border-top: 6px solid var(--gold); box-shadow: 0 18px 42px rgba(0,0,0,.24); }
-    .hero-card h2 { font-size: 23px; margin-bottom: 10px; }
-    .hero-card p { color: var(--gray-600); font-size: 16px; }
-    .hero-card dl { margin-top: 18px; border-top: 1px solid var(--gray-200); padding-top: 16px; }
-    .hero-card dt { font-weight: 800; margin-top: 10px; }
-    .hero-card dd { color: var(--gray-600); }
+    .btn.secondary {
+      background: white;
+      color: var(--navy);
+    }
 
-    section { padding: 60px 0; }
-    .section-header { max-width: 760px; margin-bottom: 30px; }
-    .section-header h2 { color: var(--navy); font-size: 36px; line-height: 1.08; margin-bottom: 10px; }
-    .section-header p { color: var(--gray-600); font-size: 18px; }
+    /* SECTIONS */
+    .section {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
 
-    .audience-grid, .resource-grid, .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .card { border: 1px solid var(--gray-200); background: white; padding: 26px; min-height: 210px; display: flex; flex-direction: column; }
-    .card h3 { color: var(--navy); font-size: 24px; margin-bottom: 8px; }
-    .card p { color: var(--gray-600); margin-bottom: 22px; }
-    .text-link { color: var(--blue); font-weight: 800; margin-top: auto; }
+    .section-tight {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
 
-    .sand { background: #f7f3e8; border-top: 1px solid #eadfbd; border-bottom: 1px solid #eadfbd; }
-    .resource-card { border-left: 5px solid var(--gold); }
+    .blue-section {
+      background: var(--light-blue);
+    }
 
-    .topics { display: flex; flex-wrap: wrap; gap: 12px; }
-    .topic { background: #eaf3f8; color: var(--navy); font-weight: 800; padding: 12px 16px; border-radius: 3px; }
-    .topic:hover { background: #dcecf4; }
+    .pale-section {
+      background: var(--pale-blue);
+    }
 
-    .research { background: var(--navy); color: white; }
-    .research .section-header h2 { color: white; }
-    .research .section-header p { color: rgba(255,255,255,.76); }
-    .research .card { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); }
-    .research .card h3 { color: var(--gold); }
-    .research .card p { color: rgba(255,255,255,.78); }
+    .section-title {
+      text-align: center;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
 
-    .connect-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; }
-    .connect-box { background: var(--gray-50); border: 1px solid var(--gray-200); padding: 30px; }
-    .connect-box h3 { color: var(--navy); font-size: 26px; margin-bottom: 10px; }
-    .connect-box p, .connect-box li { color: var(--gray-600); }
-    .connect-box ul { margin-top: 16px; padding-left: 20px; }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+    }
 
-    footer { background: #111827; color: rgba(255,255,255,.72); padding: 42px 0 26px; }
-    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 30px; }
-    footer h3, footer h4 { color: white; margin-bottom: 12px; }
-    footer ul { list-style: none; }
-    footer li { margin-bottom: 8px; }
-    .copyright { border-top: 1px solid rgba(255,255,255,.12); margin-top: 28px; padding-top: 18px; font-size: 13px; }
+    .audience-card {
+      height: 118px;
+      background: white;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 12px;
+    }
 
-    @media (max-width: 850px) {
-      .topbar-inner, .brand-row { flex-direction: column; align-items: flex-start; padding: 14px 0; }
-      nav { justify-content: flex-start; }
-      .hero-inner, .connect-grid, .footer-grid { grid-template-columns: 1fr; }
-      .audience-grid, .resource-grid, .research-grid { grid-template-columns: 1fr; }
-      section { padding: 42px 0; }
+    .audience-card .icon {
+      color: #8D969D;
+      font-size: 25px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .audience-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 12px;
+      line-height: 1.18;
+      font-weight: 900;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 36% 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .placeholder-img {
+      height: 190px;
+      background: #E2E5E9;
+      border: 1px solid #CCD3DA;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .placeholder-img::before,
+    .placeholder-img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(32deg, transparent 49.5%, #C7CDD3 50%, transparent 50.5%);
+    }
+
+    .placeholder-img::after {
+      background: linear-gradient(-32deg, transparent 49.5%, #C7CDD3 50%, transparent 50.5%);
+    }
+
+    .image-icon {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #8E969E;
+      font-size: 25px;
+      z-index: 2;
+    }
+
+    .copy h2 {
+      font-size: 19px;
+      color: var(--navy);
+      margin-bottom: 8px;
+      font-weight: 900;
+    }
+
+    .copy p {
+      color: #304255;
+      font-size: 13px;
+      max-width: 550px;
+      margin-bottom: 12px;
+    }
+
+    .link {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .offer-card {
+      background: white;
+      border: 1px solid var(--line);
+      min-height: 178px;
+      padding: 20px 17px;
+    }
+
+    .offer-card .offer-icon {
+      color: #8D969D;
+      font-size: 33px;
+      margin-bottom: 12px;
+      display: block;
+      line-height: 1;
+    }
+
+    .offer-card h3 {
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 7px;
+    }
+
+    .offer-card p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat {
+      text-align: center;
+      padding: 9px 18px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-icon {
+      color: #8D969D;
+      font-size: 27px;
+      margin-bottom: 7px;
+    }
+
+    .stat-num {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 6px;
+      line-height: 1.2;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 44px;
+    }
+
+    .event-card {
+      border: 1px solid var(--line);
+      background: white;
+    }
+
+    .event-top {
+      height: 58px;
+      background: #DEE2E6;
+      display: grid;
+      place-items: center;
+      color: #8D969D;
+      font-size: 25px;
+    }
+
+    .event-body {
+      padding: 16px;
+    }
+
+    .event-date {
+      font-size: 9px;
+      color: #67727E;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .event-body h3 {
+      font-size: 13px;
+      color: var(--navy);
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+
+    .event-body p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .view-all {
+      text-align: center;
+      margin-top: 18px;
+    }
+
+    .cta {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 24px 0 26px;
+    }
+
+    .cta h2 {
+      font-size: 21px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .cta .btn {
+      border-color: white;
+    }
+
+    .cta .secondary {
+      background: transparent;
+      color: white;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #EEF2F5;
+      padding: 24px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr 1fr;
+      gap: 28px;
+    }
+
+    .footer h3,
+    .footer h4 {
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 7px;
+    }
+
+    .footer p,
+    .footer li,
+    .footer a {
+      color: #415468;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .footer ul { list-style: none; }
+
+    .socials {
+      display: flex;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .socials span {
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      background: #78828C;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    /* RIGHT ANNOTATION COLUMN */
+    .annotations {
+      background: #fff;
+      padding: 92px 18px 20px;
+    }
+
+    .note {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      margin-bottom: 48px;
+      color: #1E3148;
+    }
+
+    .note-num {
+      width: 22px;
+      height: 22px;
+      background: var(--blue);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 900;
+      margin-top: 2px;
+    }
+
+    .note h4 {
+      font-size: 12px;
+      color: var(--navy);
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    .note ul {
+      padding-left: 14px;
+    }
+
+    .note li {
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 2px;
+      color: #25384C;
+    }
+
+    @media (max-width: 1100px) {
+      .page-shell { grid-template-columns: 1fr; }
+      .annotations { display: none; }
+      .audience-grid { grid-template-columns: repeat(3, 1fr); }
+      .offer-grid, .stats-grid, .events-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-content { width: 62%; }
+    }
+
+    @media (max-width: 760px) {
+      .header-inner { height: auto; padding: 12px 0; align-items: flex-start; flex-direction: column; }
+      .nav { flex-wrap: wrap; }
+      .nav a { padding: 8px 9px; }
+      .hero { height: auto; }
+      .hero-content { min-width: 0; width: 100%; padding: 46px 0; }
+      .hero h1 { font-size: 30px; }
+      .audience-grid, .offer-grid, .stats-grid, .events-grid, .footer-grid, .about-grid { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid var(--line); }
+      .container { width: min(100% - 32px, 1040px); }
     }
   </style>
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span>UC San Diego Jacobs School of Engineering</span>
-      <a href="https://jacobsschool.ucsd.edu/idea" target="_blank" rel="noopener">Official IDEA Center Site</a>
-    </div>
-  </div>
+  <div class="page-shell">
+    <div class="main-site">
+      <header class="header">
+        <div class="container header-inner">
+          <a class="logo-group" href="index.html">
+            <div class="ucsd-logo">UCSanDiego</div>
+            <div class="idea-logo">IDEA Engineering<br>Student Center</div>
+          </a>
 
-  <header>
-    <div class="container brand-row">
-      <a class="brand" href="index.html">
-        <div class="brand-ucsd">UC San Diego</div>
-        <div class="brand-idea">
-          <strong>IDEA Engineering</strong>
-          <span>Student Center</span>
+          <nav class="nav" aria-label="Main navigation">
+            <a href="about.html">About</a>
+            <a href="#programs">Programs⌄</a>
+            <a href="#students">Students⌄</a>
+            <a href="#resources">Resources⌄</a>
+            <a href="#events">Events</a>
+            <a href="#support">Get Support</a>
+            <span class="search">⌕</span>
+          </nav>
         </div>
-      </a>
-      <nav aria-label="Main navigation">
-        <a href="about.html">About</a>
-        <a href="#new-admits">New Admits</a>
-        <a href="#undergraduate">Undergraduate</a>
-        <a href="#graduate">Graduate</a>
-        <a href="#research">Research</a>
-        <a href="#connect">Connect</a>
-      </nav>
-    </div>
-  </header>
+      </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <div>
-          <div class="eyebrow">IDEA Engineering Student Center</div>
-          <h1>Engaging every engineering student toward success.</h1>
-          <p>Community, academic support, professional development, and equity-centered resources for Jacobs School undergraduate and graduate engineering students.</p>
-          <div class="hero-actions">
-            <a class="btn gold" href="#audiences">Find Student Resources</a>
-            <a class="btn outline" href="about.html">Meet the Staff</a>
+      <main>
+        <section class="hero">
+          <div class="container">
+            <div class="hero-content">
+              <h1>Supporting Every<br>Triton Engineer’s Success</h1>
+              <p>Academic support, professional development, and community for undergraduate and graduate engineering students.</p>
+              <div class="btn-row">
+                <a class="btn primary" href="#programs">Explore Programs</a>
+                <a class="btn secondary" href="#support">Get Support</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="students" class="section">
+          <div class="container">
+            <h2 class="section-title">I AM A...</h2>
+            <div class="audience-grid">
+              <a class="audience-card" href="#"><span class="icon">●</span><strong>New<br>Students</strong></a>
+              <a class="audience-card" href="#"><span class="icon">◆</span><strong>Undergraduate<br>Students</strong></a>
+              <a class="audience-card" href="#"><span class="icon">◎</span><strong>Graduate<br>Students</strong></a>
+              <a class="audience-card" href="#"><span class="icon">♙</span><strong>Research &<br>Opportunities</strong></a>
+              <a class="audience-card" href="#"><span class="icon">▰</span><strong>Academic<br>Support</strong></a>
+              <a class="audience-card" href="#"><span class="icon">▣</span><strong>Career<br>Development</strong></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section blue-section">
+          <div class="container about-grid">
+            <div class="placeholder-img"><div class="image-icon">▧</div></div>
+            <div class="copy">
+              <h2>About the IDEA Engineering Student Center</h2>
+              <p>The IDEA Engineering Student Center supports undergraduate and graduate engineering students through academic enrichment, community engagement, and professional development programs.</p>
+              <p>We aim to promote student success, belonging, and achievement across all engineering disciplines.</p>
+              <a class="link" href="about.html">Learn more about us →</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="programs" class="section">
+          <div class="container">
+            <h2 class="section-title">What We Offer</h2>
+            <div class="offer-grid">
+              <article class="offer-card">
+                <span class="offer-icon">▱</span>
+                <h3>Academic Support</h3>
+                <p>Tutoring, advising, and transition support to help you succeed.</p>
+                <a class="link" href="#">Learn More →</a>
+              </article>
+
+              <article class="offer-card">
+                <span class="offer-icon">▣</span>
+                <h3>Career Development</h3>
+                <p>Internships, resume support, and industry preparation to launch your career.</p>
+                <a class="link" href="#">Learn More →</a>
+              </article>
+
+              <article class="offer-card">
+                <span class="offer-icon">♙</span>
+                <h3>Research Opportunities</h3>
+                <p>Undergraduate research pathways and faculty connections.</p>
+                <a class="link" href="#">Learn More →</a>
+              </article>
+
+              <article class="offer-card">
+                <span class="offer-icon">◎</span>
+                <h3>Community & Engagement</h3>
+                <p>Student programs, mentorship, and cohort-based support.</p>
+                <a class="link" href="#">Learn More →</a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-tight pale-section">
+          <div class="container">
+            <h2 class="section-title">IDEA by the Numbers</h2>
+            <div class="stats-grid">
+              <div class="stat">
+                <div class="stat-icon">◎</div>
+                <div class="stat-num">200+</div>
+                <div class="stat-label">Students Supported<br>Annually</div>
+              </div>
+              <div class="stat">
+                <div class="stat-icon">▦</div>
+                <div class="stat-num">30+</div>
+                <div class="stat-label">Programs & Events<br>Each Year</div>
+              </div>
+              <div class="stat">
+                <div class="stat-icon">◇</div>
+                <div class="stat-num">100+</div>
+                <div class="stat-label">Industry & Faculty<br>Partners</div>
+              </div>
+              <div class="stat">
+                <div class="stat-icon">▧</div>
+                <div class="stat-num">$7,500+</div>
+                <div class="stat-label">Research Funding<br>Opportunities</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="events" class="section">
+          <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+
+            <div class="events-grid">
+              <article class="event-card">
+                <div class="event-top">▦</div>
+                <div class="event-body">
+                  <div class="event-date">May 15, 2026</div>
+                  <h3>Resume Workshop</h3>
+                  <p>Learn how to create a strong resume that stands out.</p>
+                  <a class="link" href="#">View Details →</a>
+                </div>
+              </article>
+
+              <article class="event-card">
+                <div class="event-top">▦</div>
+                <div class="event-body">
+                  <div class="event-date">May 22, 2026</div>
+                  <h3>Research Info Session</h3>
+                  <p>Explore undergraduate research opportunities at UC San Diego.</p>
+                  <a class="link" href="#">View Details →</a>
+                </div>
+              </article>
+
+              <article class="event-card">
+                <div class="event-top">▦</div>
+                <div class="event-body">
+                  <div class="event-date">May 30, 2026</div>
+                  <h3>Networking Night</h3>
+                  <p>Connect with industry professionals and IDEA alumni.</p>
+                  <a class="link" href="#">View Details →</a>
+                </div>
+              </article>
+            </div>
+
+            <div class="view-all">
+              <a class="link" href="#">View All Events →</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="support" class="cta">
+          <div class="container">
+            <h2>Ready to get involved with IDEA?</h2>
+            <p>We’re here to support your journey every step of the way.</p>
+            <div class="btn-row" style="justify-content:center;">
+              <a class="btn primary" href="#programs">Explore Programs</a>
+              <a class="btn secondary" href="mailto:idea@ucsd.edu">Contact Us / Advising</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-grid">
+          <div>
+            <h3>IDEA Engineering<br>Student Center</h3>
+            <p>9500 Gilman Dr. #0080<br>La Jolla, CA 92093<br>(858) 534-2930<br>idea@ucsd.edu</p>
+            <div class="socials"><span>f</span><span>ig</span><span>in</span><span>▶</span></div>
+          </div>
+
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="about.html">About IDEA</a></li>
+              <li><a href="#programs">Programs</a></li>
+              <li><a href="#students">Students</a></li>
+              <li><a href="#resources">Resources</a></li>
+              <li><a href="#events">Events</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Advising & Appointments</a></li>
+              <li><a href="#">Tutoring</a></li>
+              <li><a href="#">Financial Aid</a></li>
+              <li><a href="#">Scholarships</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Hours</h4>
+            <p>Monday – Friday<br>8:00 AM – 5:00 PM</p>
+            <h4 style="margin-top:12px;">Location</h4>
+            <p>Engineering Building 2<br>Room 0080</p>
           </div>
         </div>
-
-        <aside class="hero-card">
-          <h2>IDEA Center Support</h2>
-          <p>Use this page as a polished homepage mockup for review. Live hours and appointments should be confirmed on the official IDEA site.</p>
-          <dl>
-            <dt>Office Suite</dt>
-            <dd>Jacobs Hall, Suite 1400</dd>
-            <dt>Study Lounge</dt>
-            <dd>PFBH Basement 003</dd>
-            <dt>Email</dt>
-            <dd>idea@ucsd.edu</dd>
-          </dl>
-        </aside>
-      </div>
-    </section>
-
-    <section id="audiences">
-      <div class="container">
-        <div class="section-header">
-          <div class="eyebrow">Find your path</div>
-          <h2>Support for each stage of the engineering student experience.</h2>
-          <p>IDEA connects students with programs, people, and opportunities from admission through graduation.</p>
-        </div>
-
-        <div class="audience-grid">
-          <article id="new-admits" class="card">
-            <h3>New Admits</h3>
-            <p>Programs and resources for first-year and transfer students preparing to begin at UC San Diego.</p>
-            <a class="text-link" href="https://jacobsschool.ucsd.edu/idea/new-admits" target="_blank" rel="noopener">Get started →</a>
-          </article>
-
-          <article id="undergraduate" class="card">
-            <h3>Undergraduates</h3>
-            <p>Academic, professional, research, and community-building support for undergraduate engineers.</p>
-            <a class="text-link" href="https://jacobsschool.ucsd.edu/idea/undergraduate" target="_blank" rel="noopener">Connect now →</a>
-          </article>
-
-          <article id="graduate" class="card">
-            <h3>Graduate Students</h3>
-            <p>Resources, organizations, and services designed for the graduate engineering student experience.</p>
-            <a class="text-link" href="https://jacobsschool.ucsd.edu/idea/graduate" target="_blank" rel="noopener">Learn more →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="sand">
-      <div class="container">
-        <div class="section-header">
-          <div class="eyebrow">Core resources</div>
-          <h2>What IDEA provides</h2>
-        </div>
-
-        <div class="resource-grid">
-          <article class="card resource-card">
-            <h3>Coaching</h3>
-            <p>Meet with IDEA staff for support, navigation, and connection to campus resources.</p>
-            <a class="text-link" href="https://jacobsschool.ucsd.edu/idea/coaching" target="_blank" rel="noopener">Schedule support →</a>
-          </article>
-
-          <article class="card resource-card">
-            <h3>Community</h3>
-            <p>Programs, events, and student-centered spaces that help engineering students build belonging.</p>
-            <a class="text-link" href="https://jacobsschool.ucsd.edu/idea/events" target="_blank" rel="noopener">View events →</a>
-          </article>
-
-          <article class="card resource-card">
-            <h3>Faculty & Industry</h3>
-            <p>Pathways for collaboration, student success initiatives, and industry engagement.</p>
-            <a class="text-link" href="https://jacobsschool.ucsd.edu/idea/faculty" target="_blank" rel="noopener">Learn more →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-header">
-          <div class="eyebrow">Popular links</div>
-          <h2>Explore IDEA programs</h2>
-        </div>
-        <div class="topics">
-          <a class="topic" href="https://jacobsschool.ucsd.edu/idea/events" target="_blank" rel="noopener">Events</a>
-          <a class="topic" href="https://jacobsschool.ucsd.edu/idea/new-admits/summer-engineering-institute" target="_blank" rel="noopener">Summer Engineering Institute</a>
-          <a class="topic" href="https://jacobsschool.ucsd.edu/idea/events/ring-ceremony" target="_blank" rel="noopener">Ring Ceremony</a>
-          <a class="topic" href="https://jacobsschool.ucsd.edu/idea/coaching" target="_blank" rel="noopener">Coaching</a>
-          <a class="topic" href="https://jacobsschool.ucsd.edu/idea/new-admits/transfer-prep" target="_blank" rel="noopener">Transfer Prep</a>
-          <a class="topic" href="https://jacobsschool.ucsd.edu/idea/undergraduate/undergraduate-research" target="_blank" rel="noopener">Undergraduate Research</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="research" class="research">
-      <div class="container">
-        <div class="section-header">
-          <div class="eyebrow">Undergraduate research</div>
-          <h2>Research pathways for Jacobs School students.</h2>
-          <p>Explore research preparation, symposium opportunities, and funding support for undergraduate engineering students.</p>
-        </div>
-
-        <div class="research-grid">
-          <article class="card">
-            <h3>GEAR Up2Research</h3>
-            <p>A guided introduction to what engineering research is and how to get started.</p>
-          </article>
-
-          <article class="card">
-            <h3>Research Symposium</h3>
-            <p>A Jacobs School showcase of undergraduate research and student projects.</p>
-          </article>
-
-          <article class="card">
-            <h3>Research Scholarship</h3>
-            <p>Funding support for undergraduate engineering students continuing research over the summer.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="connect">
-      <div class="container connect-grid">
-        <div class="connect-box">
-          <div class="eyebrow">Connect with us</div>
-          <h3>Stay up to date with IDEA Center programs and events.</h3>
-          <p>Follow IDEA channels, subscribe to updates, and check official pages for the latest hours and event information.</p>
-          <ul>
-            <li>Program announcements and events</li>
-            <li>Student success resources</li>
-            <li>Undergraduate research opportunities</li>
-          </ul>
-        </div>
-
-        <div class="connect-box">
-          <h3>Contact</h3>
-          <p><strong>IDEA Engineering Student Center</strong><br>
-          UC San Diego<br>
-          Jacobs Hall, Suite 1400<br>
-          idea@ucsd.edu</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h3>IDEA Engineering Student Center</h3>
-          <p>Supporting engineering students through community, academic success, professional development, and access-centered programs.</p>
-        </div>
-        <div>
-          <h4>Pages</h4>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="#audiences">Student Resources</a></li>
-            <li><a href="#research">Research</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Official Links</h4>
-          <ul>
-            <li><a href="https://jacobsschool.ucsd.edu/idea" target="_blank" rel="noopener">Official IDEA Site</a></li>
-            <li><a href="https://jacobsschool.ucsd.edu" target="_blank" rel="noopener">Jacobs School</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="copyright">© Regents of the University of California. Mockup page for IDEA website update review.</div>
+      </footer>
     </div>
-  </footer>
+
+    <aside class="annotations" aria-label="Homepage section notes">
+      <div class="note">
+        <div class="note-num">1</div>
+        <div>
+          <h4>Hero Section</h4>
+          <ul>
+            <li>Full-width image</li>
+            <li>Left-aligned text block</li>
+            <li>Headline, subtext, CTAs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        <div class="note-num">2</div>
+        <div>
+          <h4>Program Navigation Strip</h4>
+          <ul>
+            <li>Quick entry points</li>
+            <li>Icon + text buttons</li>
+            <li>Clean horizontal grid</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        <div class="note-num">3</div>
+        <div>
+          <h4>About Section</h4>
+          <ul>
+            <li>Short explanation of IDEA</li>
+            <li>Image + text layout</li>
+            <li>Academic tone</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        <div class="note-num">4</div>
+        <div>
+          <h4>Programs / Services Grid</h4>
+          <ul>
+            <li>4 equal cards</li>
+            <li>Icon, title, description, link</li>
+            <li>Consistent spacing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        <div class="note-num">5</div>
+        <div>
+          <h4>Impact / Stats Section</h4>
+          <ul>
+            <li>Key numbers in a row</li>
+            <li>Icons + short labels</li>
+            <li>Builds credibility</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        <div class="note-num">6</div>
+        <div>
+          <h4>Events Section</h4>
+          <ul>
+            <li>3 event cards</li>
+            <li>Date, title, description, link</li>
+            <li>View all events link</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        <div class="note-num">7</div>
+        <div>
+          <h4>Call to Action Section</h4>
+          <ul>
+            <li>Bold background</li>
+            <li>Short message + CTAs</li>
+            <li>Drives next steps</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        <div class="note-num">8</div>
+        <div>
+          <h4>Footer</h4>
+          <ul>
+            <li>Contact info</li>
+            <li>Quick links</li>
+            <li>Hours & location</li>
+            <li>Social media</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
 </body>
 </html>
